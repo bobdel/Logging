@@ -12,7 +12,7 @@ final class LogViewModel: ObservableObject {
     // swiftlint:disable:next redundant_optional_initialization
     @Published private(set) var items: Result<[Item], Error>? = nil
     @Published var logs: [Logs] = []
-    
+
     var isLoaded: Bool {
         switch items {
         case.success: return true

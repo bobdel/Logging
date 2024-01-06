@@ -5,28 +5,30 @@
 //  Created by Joshua Homann on 9/24/21.
 //
 
-import Combine
+// import Combine
 import SwiftUI
-import UIKit
+// import UIKit
 
 struct ContentView: View {
-    private let title = "Root view"
+    private let title = "Logging Root View"
     @State private var showList = false
     @State private var showAnalytics = false
     var body: some View {
-        return NavigationView {
-            VStack {
-                Button("Show Analytics") {
-                    Log.navigation.debug("Tap show analytics")
+        return NavigationStack {
+            VStack(alignment: .leading) {
+                Button {
+                    Log.navigation.debug("Show Analytics tapped")
                     showAnalytics.toggle()
+                } label: {
+                    Label("Show Analytics", systemImage: "square")
                 }
                 Button {
-                    Log.navigation.log("Tap show list")
+                    Log.navigation.log("Display List tapped")
                     showList.toggle()
                 } label: {
-                    Label("First Button", systemImage: "circle")
+                    Label("List View", systemImage: "circle")
                 }
-                .overlay(NavigationLink("", isActive: $showList) { ListView() })
+                .navigationDestination(isPresented: $showList, destination: { ListView() })
             }
             .onAppear { Log.navigation.log("\(title) did appear")}
             .sheet(isPresented: $showAnalytics) {
@@ -35,6 +37,10 @@ struct ContentView: View {
             .navigationTitle(title)
         }
     }
+}
+
+#Preview("Logging Root View") {
+    ContentView()
 }
 
 struct ListView: View {
@@ -49,4 +55,8 @@ struct ListView: View {
             .navigationTitle(title)
         }
     }
+}
+
+#Preview("List View") {
+    ListView()
 }

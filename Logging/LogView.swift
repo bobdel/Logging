@@ -17,7 +17,7 @@ struct LogView: View {
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(viewModel.logs.indices) { index in
+                        ForEach(viewModel.logs.indices, id: \.self) { index in
                             Toggle(viewModel.logs[index].title, isOn: .init(
                                 get: { viewModel.logs[index].isEnabled },
                                 set: { _ in viewModel.selectLog(index: index)}
@@ -29,7 +29,9 @@ struct LogView: View {
                     .padding()
                 }
                 .toolbar {
-                    Button(action: { showShare.toggle() }) {
+                    Button {
+                        showShare.toggle()
+                    } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
                 }
@@ -59,4 +61,8 @@ struct LogView: View {
             }
         }
     }
+}
+
+#Preview("Analytics 'Logs' View") {
+    LogView()
 }
