@@ -9,7 +9,6 @@ import Combine
 import SwiftUI
 import UIKit
 
-
 struct ContentView: View {
     private let title = "Root view"
     @State private var showList = false
@@ -27,7 +26,7 @@ struct ContentView: View {
                 } label: {
                     Label("First Button", systemImage: "circle")
                 }
-                .overlay(NavigationLink("", isActive: $showList) { ListView() } )
+                .overlay(NavigationLink("", isActive: $showList) { ListView() })
             }
             .onAppear { Log.navigation.log("\(title) did appear")}
             .sheet(isPresented: $showAnalytics) {
@@ -42,7 +41,7 @@ struct ListView: View {
     private let title = "List view"
     var body: some View {
         VStack {
-            List (0..<1000) { number in
+            List(0..<1000) { number in
                 NavigationLink("\(number)", destination: Text("\(number)"))
                     .onAppear { Log.navigation.log("\(number) did appear")}
             }
@@ -51,4 +50,3 @@ struct ListView: View {
         }
     }
 }
-

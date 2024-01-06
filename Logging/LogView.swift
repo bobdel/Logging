@@ -13,11 +13,11 @@ struct LogView: View {
     @State private var showShare = false
     // MARK: - View
     var body: some View {
-        NavigationView  {
+        NavigationView {
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach (viewModel.logs.indices) { index in
+                        ForEach(viewModel.logs.indices) { index in
                             Toggle(viewModel.logs[index].title, isOn: .init(
                                 get: { viewModel.logs[index].isEnabled },
                                 set: { _ in viewModel.selectLog(index: index)}

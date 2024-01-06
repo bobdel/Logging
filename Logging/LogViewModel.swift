@@ -7,10 +7,9 @@
 
 import Foundation
 
-
 @MainActor
 final class LogViewModel: ObservableObject {
-
+    // swiftlint:disable:next redundant_optional_initialization
     @Published private(set) var items: Result<[Item], Error>? = nil
     @Published var logs: [Logs] = []
     var isLoaded: Bool {
@@ -26,7 +25,7 @@ final class LogViewModel: ObservableObject {
         var message: String
     }
 
-    struct Logs: Identifiable  {
+    struct Logs: Identifiable {
         var id: String { title }
         var title: String
         var name: Log.Name
@@ -50,7 +49,7 @@ final class LogViewModel: ObservableObject {
     }
 
     func export() -> String {
-        (try? items?.get().map { "\($0.date) \($0.message)" } )?.joined(separator: "\n") ?? ""
+        (try? items?.get().map { "\($0.date) \($0.message)" })?.joined(separator: "\n") ?? ""
     }
 
     func selectLog(index: Int) {

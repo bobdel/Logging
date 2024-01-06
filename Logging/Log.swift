@@ -19,9 +19,11 @@ enum Log {
     static func entries(for names: [Name], since seconds: TimeInterval) throws -> [OSLogEntryLog] {
         let logStore = try OSLogStore(scope: .currentProcessIdentifier)
         let position = logStore.position(date: .now.addingTimeInterval(-seconds))
-        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates:[
+        let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
             NSPredicate(format: "subsystem == %@", Self.subsystem),
-            NSCompoundPredicate(orPredicateWithSubpredicates: names.map(\.rawValue).map { NSPredicate(format: "category == %@", $0) })
+            NSCompoundPredicate(orPredicateWithSubpredicates: names.map(\.rawValue).map {
+                NSPredicate(format: "category == %@", $0)
+            })
         ])
         let entries = try logStore.getEntries(with: [.reverse], at: position, matching: predicate)
         return entries.compactMap { $0 as? OSLogEntryLog }
