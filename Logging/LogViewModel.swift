@@ -12,6 +12,7 @@ final class LogViewModel: ObservableObject {
     // swiftlint:disable:next redundant_optional_initialization
     @Published private(set) var items: Result<[Item], Error>? = nil
     @Published var logs: [Logs] = []
+    
     var isLoaded: Bool {
         switch items {
         case.success: return true
@@ -20,13 +21,13 @@ final class LogViewModel: ObservableObject {
     }
 
     struct Item: Identifiable {
-        var id: String { date + message }
+        var id = UUID()
         var date: String
         var message: String
     }
 
     struct Logs: Identifiable {
-        var id: String { title }
+        var id = UUID()
         var title: String
         var name: Log.Name
         var isEnabled: Bool
