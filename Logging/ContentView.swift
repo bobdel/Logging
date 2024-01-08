@@ -5,17 +5,19 @@
 //  Created by Joshua Homann on 9/24/21.
 //
 
-// import Combine
 import SwiftUI
-// import UIKit
 
 struct ContentView: View {
-    private let title = "Logging Root View"
+
+    private let title = "LoggingApp"
+
     @State private var showList = false
     @State private var showAnalytics = false
+
     var body: some View {
         return NavigationStack {
             VStack(alignment: .leading) {
+                NavigationLink("Test List View", destination: ListView())
                 Button {
                     Log.navigation.debug("Show Analytics tapped")
                     showAnalytics.toggle()
@@ -30,7 +32,9 @@ struct ContentView: View {
                 }
                 .navigationDestination(isPresented: $showList, destination: { ListView() })
             }
-            .onAppear { Log.navigation.log("\(title) did appear")}
+            .padding(.bottom, 220)
+            .buttonStyle(.borderedProminent)
+            .onAppear { Log.navigation.log("\(title) root view did appear")}
             .sheet(isPresented: $showAnalytics) {
                 LogView()
             }
