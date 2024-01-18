@@ -9,33 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
 
-    private let title = "LoggingApp"
+    private let title = "ContentView"
 
     @State private var showList = false
-    @State private var showAnalytics = false
+    @State private var showLogView = false
 
     var body: some View {
         return NavigationStack {
             VStack(alignment: .leading) {
-                NavigationLink("Test List View", destination: ListView())
+//                NavigationLink("Test List View", destination: ListView())
                 Button {
-                    Log.navigation.debug("Show Analytics tapped")
-                    showAnalytics.toggle()
+                    Log.navigation.debug("Show LogView tapped")
+                    showLogView.toggle()
                 } label: {
-                    Label("Show Analytics", systemImage: "square")
+                    Label("Show LogView", systemImage: "square")
                 }
                 Button {
                     Log.navigation.log("Display List tapped")
                     showList.toggle()
                 } label: {
-                    Label("List View", systemImage: "circle")
+                    Label("Show List View", systemImage: "circle")
                 }
                 .navigationDestination(isPresented: $showList, destination: { ListView() })
             }
             .padding(.bottom, 220)
             .buttonStyle(.borderedProminent)
-            .onAppear { Log.navigation.log("\(title) root view did appear")}
-            .sheet(isPresented: $showAnalytics) {
+            .onAppear { Log.navigation.log("\(title) did appear")}
+            .sheet(isPresented: $showLogView) {
                 LogView()
             }
             .navigationTitle(title)
@@ -45,22 +45,4 @@ struct ContentView: View {
 
 #Preview("Logging Root View") {
     ContentView()
-}
-
-struct ListView: View {
-    private let title = "List view"
-    var body: some View {
-        VStack {
-            List(0..<1000) { number in
-                NavigationLink("\(number)", destination: Text("\(number)"))
-                    .onAppear { Log.navigation.log("\(number) did appear")}
-            }
-            .onAppear { Log.navigation.log("\(title) did appear") }
-            .navigationTitle(title)
-        }
-    }
-}
-
-#Preview("List View") {
-    ListView()
 }

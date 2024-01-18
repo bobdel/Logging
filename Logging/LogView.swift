@@ -11,6 +11,7 @@ struct LogView: View {
 
     @StateObject private var viewModel = LogViewModel()
     @State private var showShare = false
+
     // MARK: - View
     var body: some View {
         NavigationView {
@@ -63,6 +64,6 @@ struct LogView: View {
     }
 }
 
-#Preview("Analytics 'Logs' View") {
+#Preview("Analytics 'LogView'") {
     LogView()
 }

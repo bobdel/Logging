@@ -33,3 +33,5 @@ enum Log {
         return entries.compactMap { $0 as? OSLogEntryLog }
     }
 }
+
+// Notes for logging https://www.avanderlee.com/debugging/oslog-unified-logging/

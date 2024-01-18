@@ -19,6 +19,7 @@
 		030CBE2B26FEB57100E5AEA7 /* LoggingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CBE2A26FEB57100E5AEA7 /* LoggingUITestsLaunchTests.swift */; };
 		030CBE3826FEB58700E5AEA7 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030CBE3726FEB58700E5AEA7 /* Log.swift */; };
 		03538E0F26FFD6D5004F5EC0 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03538E0E26FFD6D5004F5EC0 /* GameController.framework */; };
+		711E88832B599F420082D40A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711E88822B599F420082D40A /* ListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		030CBE3726FEB58700E5AEA7 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		03538E0E26FFD6D5004F5EC0 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		03538E1026FFD6D5004F5EC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		711E88822B599F420082D40A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +113,9 @@
 				030CBE0D26FEB57000E5AEA7 /* LoggingApp.swift */,
 				030CBE0F26FEB57000E5AEA7 /* ContentView.swift */,
 				030199F22712240D007BAE3B /* LogView.swift */,
-				030199F427122420007BAE3B /* LogViewModel.swift */,
+				711E88822B599F420082D40A /* ListView.swift */,
 				030199F627122480007BAE3B /* ShareSheetView.swift */,
+				030199F427122420007BAE3B /* LogViewModel.swift */,
 				030CBE3726FEB58700E5AEA7 /* Log.swift */,
 				030CBE1126FEB57100E5AEA7 /* Assets.xcassets */,
 				030CBE1326FEB57100E5AEA7 /* Preview Content */,
@@ -309,6 +312,7 @@
 				030CBE1026FEB57000E5AEA7 /* ContentView.swift in Sources */,
 				030199F527122420007BAE3B /* LogViewModel.swift in Sources */,
 				030199F32712240D007BAE3B /* LogView.swift in Sources */,
+				711E88832B599F420082D40A /* ListView.swift in Sources */,
 				030CBE0E26FEB57000E5AEA7 /* LoggingApp.swift in Sources */,
 				030199F727122480007BAE3B /* ShareSheetView.swift in Sources */,
 				030CBE3826FEB58700E5AEA7 /* Log.swift in Sources */,

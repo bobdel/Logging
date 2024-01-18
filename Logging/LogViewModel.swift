@@ -40,7 +40,7 @@ final class LogViewModel: ObservableObject {
     }
 
     func onAppear() async {
-        Log.navigation.log("\(Self.self) did appear")
+        Log.navigation.log("\(Self.self) did appear from onAppear method")
         await fetch()
     }
 
