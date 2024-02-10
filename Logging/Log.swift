@@ -10,14 +10,18 @@ import Foundation
 
 enum Log {
     static let subsystem = Bundle.main.bundleIdentifier ?? ""
+
+    // categories for this module
     static let navigation = Logger(subsystem: Self.subsystem, category: Name.navigation.rawValue)
     static let analytics = Logger(subsystem: Self.subsystem, category: Name.analytics.rawValue)
 
+    // namespace for categories
     enum Name: String, Hashable, CaseIterable {
         case analytics
         case navigation
     }
 
+    // used to display the log inside the app.
     static func entries(for names: [Name], since seconds: TimeInterval) throws -> [OSLogEntryLog] {
         let logStore = try OSLogStore(scope: .currentProcessIdentifier)
         let position = logStore.position(date: .now.addingTimeInterval(-seconds))

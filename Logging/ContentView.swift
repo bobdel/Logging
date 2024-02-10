@@ -13,6 +13,7 @@ struct ContentView: View {
 
     @State private var showList = false
     @State private var showLogView = false
+    @State private var myName = Self.self
 
     var body: some View {
         return NavigationStack {
@@ -20,6 +21,8 @@ struct ContentView: View {
 //                NavigationLink("Test List View", destination: ListView())
                 Button {
                     Log.navigation.debug("Show LogView tapped")
+                    Log.navigation.debug("\(myName)")
+                    Log.navigation.debug("\(Self.self)")
                     showLogView.toggle()
                 } label: {
                     Label("Show LogView", systemImage: "square")
